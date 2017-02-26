@@ -1,0 +1,77 @@
+<% include header.ejs %>
+    <% include menu.ejs %>
+
+        <style>
+            .huge {
+                font-size: 24px;
+            }
+        </style>
+
+        <div class="jumbotron">
+            <h2>Dashboard</h2>
+            <hr />
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-bar-chart fa-5x" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">3000</div>
+                                    <div>
+                                        <%= __('DashboardNewPosts') %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">400</div>
+                                    <div>
+                                        <%= __('DashboardOnlineUsers') %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <h2>Top 10</h2>
+            <hr />
+            <div class="row">
+                <ul>
+                    <li>
+                        Lorem impsum dolorem amet.
+                    </li>
+                    <li>
+                        Lorem impsum dolorem amet.
+                    </li>
+                    <li>
+                        Lorem impsum dolorem amet.
+                    </li>
+                    <li>
+                        Lorem impsum dolorem amet.
+                    </li>
+                    <li>
+                        Lorem impsum dolorem amet.
+                    </li>
+                </ul>
+
+            </div>
+
+
+        </div>
+        <% include footer.ejs %>

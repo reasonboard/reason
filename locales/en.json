@@ -1,0 +1,14 @@
+{
+	"Posts": "Posts",
+	"Channels": "Channels",
+	"Boards": "Boards",
+	"Dashboard": "Dashboard",
+	"BanList": "Ban List",
+	"Worldfilters": "Worldfilters",
+	"Users": "Users",
+	"Configurations": "Configurations",
+	"General": "General",
+  "DashboardNewPosts" : "New Posts!",
+  "DashboardOnlineUsers" : "Online",
+  "ChannelsDescription" : "Manage your channels, if you remove the channel, all the content will be deleted with no possibility of backup."
+}

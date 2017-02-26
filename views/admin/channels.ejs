@@ -1,0 +1,55 @@
+<% include header.ejs %>
+    <% include menu.ejs %>
+        <div class="row">
+            <h2><%= __('Channels') %></h2>
+            <hr />
+            <p>
+                <%= __('ChannelsDescription') %>
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <input type="text" name="title" placeholder="Descripton Ex: (Politically incorrect)" class="form-control" />
+                <input type="text" name="code" placeholder="Code (Ex: pol)" class="form-control" />
+                <input type="text" name="url" placeholder="URL (CNAME DOMAIN xxx.domain.com)" class="form-control" />
+                <label>Don't forget to include the CNAME entry in DNS.</label>
+                <input type="button" value="Submit" class="btn btn-primary" />
+            </div>
+
+
+        </div>
+        <hr />
+        <h3>Entries</h3>
+        <table class="table">
+            <thead>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Code
+                </th>
+                <th>
+                    URL
+                </th>
+                <th>
+                    remove
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        WWW
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        www.domain.com
+                    </td>
+                    <td>
+                        <a href="/manager/remove-channel/1" title="Remove Channel"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <% include footer.ejs %>
