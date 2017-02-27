@@ -1,4 +1,5 @@
 <% include header.ejs %>
+    <script src="/scripts/channels.js"></script>
     <% include menu.ejs %>
         <div class="row">
             <h2><%= __('Channels') %></h2>
@@ -9,18 +10,26 @@
         </div>
         <div class="row">
             <div class="col-sm-3">
-                <input type="text" name="title" placeholder="Descripton Ex: (Politically incorrect)" class="form-control" />
-                <input type="text" name="code" placeholder="Code (Ex: pol)" class="form-control" />
-                <input type="text" name="url" placeholder="URL (CNAME DOMAIN xxx.domain.com)" class="form-control" />
-                <label>Don't forget to include the CNAME entry in DNS.</label>
-                <input type="button" value="Submit" class="btn btn-primary" />
+                <form method="post" action="/manager/channels" data-toggle="validator" role="form">
+                    <input type="text" name="title" placeholder="Descripton Ex: (Politically incorrect)" class="form-control" required="" />
+                    <input type="text" name="code" placeholder="Code (Ex: pol)" class="form-control" required="" maxlength="4" />
+                    <input type="text" name="url" placeholder="URL" class="form-control" required="" data-error="Please, inform the URL" data-minlength="6" />
+                    <small><u>
+                      Don't forget to include the CNAME entry in DNS.
+                    </u></small><a href="https://en.wikipedia.org/wiki/CNAME_record" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                    <div class="input-group">
+                        <input type="checkbox" value="1" name="ssl" /> HTTPS/SSL
+                    </div>
+
+                    <input type="submit" value="Submit" class="btn btn-primary pull-right" />
+                </form>
             </div>
 
 
         </div>
         <hr />
         <h3>Entries</h3>
-        <table class="table">
+        <table class="table table-striped table-bordered">
             <thead>
                 <th>
                     Title
@@ -32,24 +41,40 @@
                     URL
                 </th>
                 <th>
+                    HTTPS/SSL
+                </th>
+                <th>
                     remove
                 </th>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        WWW
-                    </td>
-                    <td>
+                <% for(var i=0; i<channels.length; i++) {%>
+                    <tr>
+                        <td>
+                            <a href="#" class="editable" id="title" data-name="title" data-type="text" data-pk="<%=channels[i]._id %>" data-url="/manager/channels/" data-title="Enter the description">
+                                <%=channels[i].title %>
+                            </a>
 
-                    </td>
-                    <td>
-                        www.domain.com
-                    </td>
-                    <td>
-                        <a href="/manager/remove-channel/1" title="Remove Channel"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            <a href="#" class="editable" id="code" data-type="text" data-pk="<%=channels[i]._id %>" data-url="/manager/channels/" data-title="Enter the code">
+                                <%=channels[i].code %>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="#" class="editable" id="url" data-type="text" data-pk="<%=channels[i]._id %>" data-url="/manager/channels/" data-title="Enter the code">
+                                <%=channels[i].url %>
+                            </a>
+                        </td>
+                        <td>
+                            <%= (channels[i].ssl != null) ? __('Yes') : __('No') %>
+                        </td>
+                        <td>
+                            <a href="javascript:;" onClick="channels_remove('<%=channels[i]._id %>')" title="Remove Channel"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
         <% include footer.ejs %>

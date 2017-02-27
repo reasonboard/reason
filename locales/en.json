@@ -8,7 +8,9 @@
 	"Users": "Users",
 	"Configurations": "Configurations",
 	"General": "General",
-  "DashboardNewPosts" : "New Posts!",
-  "DashboardOnlineUsers" : "Online",
-  "ChannelsDescription" : "Manage your channels, if you remove the channel, all the content will be deleted with no possibility of backup."
+	"DashboardNewPosts": "New Posts!",
+	"DashboardOnlineUsers": "Online",
+	"ChannelsDescription": "Manage your channels, if you remove the channel, all the content will be deleted with no possibility of backup.",
+	"No": "No",
+	"Yes": "Yes"
 }

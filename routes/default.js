@@ -2,10 +2,6 @@ app.get('/manager/dashboard', (req, res) => {
     res.render('admin/dashboard.ejs');
 });
 
-app.get('/manager/channels', (req, res) => {
-    res.render('admin/channels.ejs');
-});
-
 app.get('/manager/boards', (req, res) => {
     res.render('admin/boards.ejs');
 });

@@ -4,6 +4,7 @@ const app = express();
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSaltSync(10);
 const i18n = require("i18n");
+var ObjectId = require('mongodb').ObjectID;
 var fs = require('fs');
 
 i18n.configure({
@@ -31,7 +32,6 @@ MongoClient.connect('mongodb://localhost:27017/reason', (err, database) => {
         console.log('listening on 3000');
 
         app.get('/', (req, res) => {
-            var cursor = db.collection('quotes').find();
             db.collection('replies').find().toArray(function(err, results) {
                 res.render('index.ejs', {
                     replies: results
@@ -42,13 +42,9 @@ MongoClient.connect('mongodb://localhost:27017/reason', (err, database) => {
             //res.sendFile(__dirname + '/index.html')
         });
 
-        /*app.post('/reply', (req, res) => {
-            db.collection('replies').save(req.body, (err, result) => {
-                if (err) return console.log(err)
-                console.log('saved to database')
-                res.redirect('/')
-            })
-        }) */
+        app.get('/scripts/*', (req, res) => {
+            res.sendFile(__dirname + "/scripts/" + req.params[0]);
+        });
 
         var path = 'routes/';
         fs.readdir(path, function(err, items) {
