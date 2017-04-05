@@ -33,14 +33,17 @@ MongoClient.connect('mongodb://localhost:27017/reason', (err, database) => {
 
         app.get('/', (req, res) => {
             db.collection('replies').find().toArray(function(err, results) {
-                res.render('index.ejs', {
-                    replies: results
+                    res.render('index.ejs', {
+                        replies: results
+                    })
                 })
-            })
-
-            //res.render(view, locals)
-            //res.sendFile(__dirname + '/index.html')
+                //res.render(view, locals)
+                //res.sendFile(__dirname + '/index.html')
         });
+        app.get('/manager', (req, res) => {
+            res.redirect('/manager/dashboard');
+        });
+        eval(fs.readFileSync('system/orm.js') + '');
 
         app.get('/scripts/*', (req, res) => {
             res.sendFile(__dirname + "/scripts/" + req.params[0]);
